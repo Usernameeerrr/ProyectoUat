@@ -1,0 +1,231 @@
+<div id="guia-section" class="section">
+    <h3><i class="fas fa-globe"></i> Implementación en Diferentes Lenguajes</h3>
+    <img src="logointro4png.webp" alt="Iconos de Lenguajes" style="width: 100px; display: block; margin: 10px auto;">
+
+    <p>Aprende a implementar algoritmos en lenguajes comunes. Cada ejemplo usa el algoritmo de Suma como base, pero aplica a otros.</p>
+
+    <!-- Python -->
+    <div class="language-card">
+        <h4>Python (Fácil y legible)</h4>
+        <p><strong>Ventajas:</strong> Sintaxis simple, ideal para prototipos. 
+           <strong>Desventajas:</strong> Más lento para apps grandes.</p>
+        <pre class="code-example language-python"><code># Suma de dos números
+a, b = map(int, input().split())
+print(a + b)
+</code></pre>
+        <img src="logointro2.png" alt="Logo Python" style="width: 50px; float: right;">
+    </div>
+
+    <!-- JavaScript -->
+    <div class="language-card">
+        <h4>JavaScript (Para web interactiva)</h4>
+        <p><strong>Ventajas:</strong> Corre en browsers, asíncrono. 
+           <strong>Desventajas:</strong> Tipado débil puede causar errores.</p>
+        <pre class="code-example language-javascript"><code>// Suma de dos números
+let input = prompt("Ingresa dos números:");
+let nums = input.split(" ").map(Number);
+console.log(nums[0] + nums[1]);
+</code></pre>
+        <img src="logointro2.png" alt="Logo JS" style="width: 50px; float: right;">
+    </div>
+
+    <!-- Java -->
+    <div class="language-card">
+        <h4>Java (Orientado a Objetos)</h4>
+        <p><strong>Ventajas:</strong> Portátil, fuerte en enterprise. 
+           <strong>Desventajas:</strong> Verboso para scripts simples.</p>
+        <pre class="code-example language-java"><code>import java.util.Scanner;
+public class Suma {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt(), b = sc.nextInt();
+        System.out.println(a + b);
+    }
+}
+</code></pre>
+        <img src="logointro2.png" alt="Logo Java" style="width: 50px; float: right;">
+    </div>
+
+    <!-- C++ -->
+    <div class="language-card">
+        <h4>C++ (Alto rendimiento)</h4>
+        <p><strong>Ventajas:</strong> Rápido, control de memoria. 
+           <strong>Desventajas:</strong> Complejo para principiantes.</p>
+        <pre class="code-example language-cpp"><code>#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int a, b;
+    cin >> a >> b;
+    cout << a + b;
+    return 0;
+}
+</code></pre>
+        <img src="logointro2.png" alt="Logo C++" style="width: 50px; float: right;">
+    </div>
+
+    <!-- Guía de aprendizaje -->
+    <h2><i class="fas fa-book-open"></i> Guía de Aprendizaje</h2>
+    <p>Esta guía expandida cubre algoritmos básicos, estructuras de datos y lenguajes de programación para ISC en UAMM. 
+       Basado en planes de estudio introductorios (e.g., GeeksforGeeks, W3Schools, Cormen para algoritmos). 
+       Incluye tips para exámenes y proyectos.</p>
+    
+    <!-- Algoritmos básicos -->
+    <h3>Algoritmos Básicos</h3>
+    <p><strong>Conceptos clave:</strong> Un algoritmo es un conjunto de pasos finitos para resolver un problema. 
+       Complejidad: O(n) para suma lineal. 
+       <em>Tip:</em> Siempre considera casos edge (e.g., números negativos).</p>
+    <p>Ejemplo: Algoritmo de Suma de Dos Números (Pseudocódigo en PSeInt).</p>
+
+    <pre class="code-example">Algoritmo Suma
+    Escribir "Ingrese a: "; Leer a;
+    Escribir "Ingrese b: "; Leer b;
+    suma <- a + b;
+    Escribir "Suma: ", suma;
+FinAlgoritmo
+</pre>
+    
+    <!-- Algoritmos intermedios -->
+    <h3>Algoritmos Intermedios</h3>
+    <p>Avanza con complejidad O(log n) o O(n log n). 
+       <em>Tip:</em> Usa divide y vencerás para optimización.</p>
+    <p>Ejemplo: Algoritmo de Búsqueda Binaria (Pseudocódigo).</p>
+
+    <pre class="code-example">Algoritmo BusquedaBinaria
+Dimension arreglo[10]; // Array ordenado
+Escribir "Ingrese target: "; Leer target;
+inicio <- 1; fin <- 10;
+Mientras inicio <= fin Hacer
+    medio <- (inicio + fin) / 2;
+    Si arreglo[medio] = target Entonces
+        Escribir "Encontrado en ", medio;
+        Salir;
+    Sino Si arreglo[medio] < target Entonces
+        inicio <- medio + 1;
+    Sino
+        fin <- medio - 1;
+    FinSi
+FinMientras
+Escribir "No encontrado";
+</pre>
+
+    <p>Nuevo: Algoritmo de Búsqueda Lineal (explicación: Recorre array hasta encontrar elemento).</p>
+    <pre class="code-example">Algoritmo BusquedaLineal
+Dimension arreglo[5]; // Ejemplo array
+Escribir "Ingrese elemento a buscar: "; Leer x;
+Encontrado <- Falso;
+Para i <- 1 Hasta 5 Hacer
+    Si arreglo[i] = x Entonces
+        Encontrado <- Verdadero;
+        Escribir "Encontrado en posición ", i;
+    FinSi
+FinPara
+Si No Encontrado Entonces
+    Escribir "No encontrado";
+FinSi
+FinAlgoritmo
+</pre>
+    
+    <!-- Selector de lenguaje -->
+    <h3>Lenguajes de Programación</h3>
+    <p>Selecciona un lenguaje para ver ejemplos interactivos. 
+       <em>Tip:</em> Practica en editores online como Replit o CodePen.</p>
+
+    <select id="language-selector" class="language-btn" onchange="loadLanguageExample()">
+        <option value="cpp">C++</option>
+        <option value="csharp">C#</option>
+        <option value="js">JavaScript</option>
+        <option value="java">Java</option>
+        <option value="pseint">PSeInt</option>
+        <option value="python">Python</option>
+        <option value="htmlcss">HTML/CSS</option>
+    </select>
+    <div id="language-example"></div>
+
+    <ul>
+        <li><strong>C++</strong> (sistemas embebidos, fuente: cppreference.com): Eficiente para hardware. 
+            <em>Tip:</em> Usa pointers con cuidado.</li>
+        <li><strong>C#</strong> (.NET, fuente: docs.microsoft.com): Ideal para apps Windows. 
+            <em>Tip:</em> Maneja excepciones con try-catch.</li>
+        <li><strong>JavaScript</strong> (web, fuente: MDN): Asíncrono con async/await. 
+            <em>Tip:</em> Usa let/const en lugar de var.</li>
+        <li><strong>Java</strong> (OOP, fuente: oracle.com): Plataforma independiente. 
+            <em>Tip:</em> Sobrescribe equals() para objetos.</li>
+        <li><strong>PSeInt</strong> (pseudocódigo, fuente: pseint.sourceforge.net): Para principiantes. 
+            <em>Tip:</em> Usa SubAlgoritmo para modularidad.</li>
+        <li><strong>Python</strong> (versátil, fuente: python.org): Fácil sintaxis. 
+            <em>Tip:</em> Usa listas comprehensions para eficiencia.</li>
+        <li><strong>CSS/HTML</strong> (web front-end, fuente: W3Schools): Base para UI. 
+            <em>Tip:</em> Usa Flexbox/Grid para layouts responsivos.</li>
+    </ul>
+
+    <!-- Estructuras de datos -->
+    <h3>Estructuras de Datos Básicas</h3>
+    <p>Fundamentales para algoritmos eficientes. 
+       Complejidad: Arrays O(1) acceso, Linked Lists O(n) búsqueda.</p>
+
+    <ul>
+        <li><strong>Arrays:</strong> Almacenan elementos contiguos. 
+            Ej: <code>int arr[5] = {1,2,3,4,5};</code> (C++). 
+            <em>Tip:</em> Usa índices para acceso rápido.</li>
+        <li><strong>Listas Enlazadas:</strong> Nodos conectados. 
+            Ej: <code>class Node { int data; Node* next; };</code> (C++). 
+            <em>Tip:</em> Ideal para inserciones frecuentes.</li>
+        <li><strong>Pilas (Stacks):</strong> LIFO. Ej: push/pop. 
+            <em>Tip:</em> Para expresiones matemáticas.</li>
+        <li><strong>Colas (Queues):</strong> FIFO. Ej: enqueue/dequeue. 
+            <em>Tip:</em> Para BFS en grafos.</li>
+    </ul>
+
+    <p>Ejemplo en Python: Implementa una pila.</p>
+    <pre class="code-example language-python"><code>class Stack:
+    def __init__(self):
+        self.items = []
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        return self.items.pop() if not self.is_empty() else None
+
+    def is_empty(self):
+        return len(self.items) == 0
+</code></pre>
+
+    <!-- Quiz interactivo -->
+    <h3>Quiz Interactivo</h3>
+    <div class="quiz-question">
+        <p><strong>Pregunta 1:</strong> ¿Qué mide la complejidad O(1)?</p>
+        <button onclick="checkQuiz(1, 'Tiempo constante')">Tiempo constante</button>
+        <button onclick="checkQuiz(1, 'Tiempo lineal')">Tiempo lineal</button>
+        <p id="quiz-feedback-1"></p>
+    </div>
+
+    <!-- Debugging -->
+    <h3>Debugging y Mejores Prácticas</h3>
+    <p>Evita errores comunes en ISC. 
+       <em>Tip:</em> Usa print statements para rastrear variables.</p>
+
+    <ul>
+        <li><strong>Errores Comunes:</strong> Off-by-one en bucles, null pointers en C++, undefined en JS.</li>
+        <li><strong>Herramientas:</strong> Debugger en VS Code, console.log en JS, gdb en C++.</li>
+        <li><strong>Consejos:</strong> Escribe código modular, comenta, y prueba con casos edge (e.g., array vacío).</li>
+    </ul>
+
+    <p>Ejemplo: Debugging un bucle infinito.</p>
+
+    <!-- Exámenes -->
+    <h3>Preparación para Exámenes en UAMM</h3>
+    <p>Enfócate en problemas del plan de estudio ISC. 
+       <em>Tip:</em> Practica 2-3 horas semanales.</p>
+
+    <ul>
+        <li><strong>Temas Clave:</strong> Algoritmos de búsqueda/ordenamiento, OOP en Java, recursión.</li>
+        <li><strong>Estrategias:</strong> Resuelve problemas en papel primero, luego codifica. Usa timers para simular exámenes.</li>
+        <li><strong>Recursos UAMM:</strong> Consulta syllabus en uamm.edu.mx, únete a grupos de estudio.</li>
+    </ul>
+    <p>Para más, explora: 
+        <a href="https://www.geeksforgeeks.org/" target="_blank">GeeksforGeeks</a>, 
+        <a href="https://www.w3schools.com/" target="_blank">W3Schools</a> o 
+        <a href="https://ocw.mit.edu/" target="_blank">MIT OpenCourseWare</a>.
+    </p>
+</div>

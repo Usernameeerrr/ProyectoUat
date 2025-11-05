@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simulador - Guía UAMM ISC</title>
+
+  <link rel="stylesheet" href="DiseñoUat.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <!-- Skulpt para Python -->
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+</head>
+
+<body>
+  <header role="banner" class="site-header">
+    <img src="logointro2.png" alt="Logo UAMM ISC" class="header-logo" />
+    <h1 id="site-title"><i class="fas fa-code" aria-hidden="true"></i> Simulador de Algoritmos</h1>
+  </header>
+
+  <main id="main-content" role="main" class="container grid-two">
+    <section id="simulator-section" class="section" aria-labelledby="simulator-title">
+      <div class="hero">
+        <h2 id="simulator-title"><i class="fas fa-code" aria-hidden="true"></i> Simulador Interactivo</h2>
+        <p>Selecciona lenguaje y problema, escribe código y ejecuta en un entorno seguro.</p>
+      </div>
+
+      <div class="controls" role="region" aria-label="Controles del simulador">
+        <label for="lang-select">Lenguaje</label>
+        <select id="lang-select" aria-label="Seleccionar lenguaje">
+          <option value="js">JavaScript</option>
+          <option value="py">Python</option>
+        </select>
+
+        <label for="problem-select">Problema</label>
+        <select id="problem-select" aria-label="Seleccionar problema" onchange="loadProblem()"></select>
+
+        <button id="run-btn" class="btn" aria-label="Ejecutar código"><i class="fas fa-play"></i> Ejecutar</button>
+        <button id="show-hint-btn" class="btn secondary" aria-label="Ver Pista"><i class="fas fa-lightbulb"></i> Pista</button>
+
+        <button id="save-btn" class="btn" aria-label="Guardar código"><i class="fas fa-save"></i> Guardar</button>
+        <button id="load-saved-btn" class="btn" aria-label="Cargar guardado"><i class="fas fa-folder-open"></i> Cargar guardado</button>
+      </div>
+
+      <div class="problem-details section">
+        <h3 id="current-problem">Cargando Problema...</h3>
+        <p id="problem-description" class="description-text"></p>
+      </div>
+
+      <label for="code-input">Tu código:</label>
+      <textarea id="code-input" aria-label="Área de código" spellcheck="false" placeholder="Escribe tu código aquí..."></textarea>
+
+      <div class="sim-tools">
+        <label for="stdin-input">Entrada (simulada)</label>
+        <input id="stdin-input" type="text" aria-label="Entrada para el programa" placeholder="Ej: 3 4" />
+
+        <label for="timeout">Timeout (ms)</label>
+        <input id="timeout" type="number" min="100" step="100" value="2000" aria-label="Timeout ejecución en milisegundos" />
+      </div>
+
+      <div id="sim-output" class="section output" aria-live="polite" tabindex="0">
+        <h3>Salida del Simulador:</h3>
+        <pre id="output-area">Esperando ejecución...</pre>
+
+        <p>Salida Esperada: <span id="expected-output">N/A</span></p>
+        <p>Salida de Tu Código (Simulada): <span id="output-code-result">N/A</span></p>
+        <p id="feedback" style="font-weight: bold;"></p>
+      </div>
+
+      <div id="history-panel" class="section" aria-labelledby="history-title">
+        <h3 id="history-title">Historial (últimos 10)</h3>
+        <ul id="history-list" class="history-list" aria-live="polite"></ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Conectar con Script.js (funciones principales) -->
+  <script src="Script.js"></script>
+
+  <!-- Al abrir directamente simulador.html (no inyectado), inicializamos UI -->
+  <script>
+    // Si se abre directamente esta página, aseguramos iniciar select + botones
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof populateProblemSelect === 'function') {
+        populateProblemSelect();
+        attachSimulatorButtons();
+        applyCurrentThemeToDOM(); // aplica tema si carga directo
+      } else {
+        // Script.js no cargó: aviso a consola
+        console.warn('Script.js no cargó o no expone populateProblemSelect. Asegúrate de que Script.js esté disponible.');
+      }
+    });
+  </script>
+</body>
+</html>
