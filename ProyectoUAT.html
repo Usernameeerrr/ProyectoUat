@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía y Simulador ISC - UAMM (Versión Mejorada)</title>
+    <link rel="stylesheet" href="DiseñoUat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"> 
+</head>
+<body onload="loadTheme()"> <div id="login-modal" class="modal" style="display: block;">
+        <div class="modal-content">
+            <h2><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</h2>
+            <form id="login-form">
+                <label for="user-type">Tipo de Usuario:</label>
+                <select id="user-type">
+                    <option value="estudiante">Estudiante UAMM</option>
+                    <option value="visitante">Visitante</option>
+                </select>
+                <label for="code">Código de Acceso (para estudiantes):</label>
+                <input type="password" id="code" placeholder="Ingresa código (ej: ISC2023)">
+                <button type="submit">Entrar</button>
+            </form>
+            <p class="motivational-message">¡Bienvenido! Recuerda: cada línea de código te acerca a tu futuro en ISC.</p>
+        </div>
+    </div>
+    
+    <style>
+        /* Estilos del modal (incluidos aquí para simplicidad) */
+.modal { 
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        background: rgba(0,0,0,0.5); 
+        z-index: 1000; 
+        /* --- ESTAS LÍNEAS CENTRAN EL MODAL --- */
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        /* ------------------------------------- */
+    }
+    .modal-content { 
+        background: white; 
+        margin: 0; /* Asegúrate de que no tenga un margen que lo descentre */
+        padding: 30px; 
+        width: 300px; 
+        border-radius: 10px; 
+        text-align: center; 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+    }
+        body.dark-mode .modal-content { background: #2c3e50; color: #ecf0f1; }
+
+        /* Estilos del botón de tema */
+        #theme-toggle {
+            position: fixed; top: 15px; right: 15px; z-index: 999; 
+            cursor: pointer; background: #f1c40f; color: #2c3e50; 
+            border: none; padding: 10px; border-radius: 50%; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        body.dark-mode #theme-toggle { background: #2ecc71; color: #ecf0f1; }
+    </style>
+
+    <button id="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-graduation-cap"></i> Guía y Simulador para Ingeniería en Sistemas Computacionales</h1>
+            <p>Universidad Académica Multidisciplinaria Mante (UAMM)</p>
+            <p>Bienvenido, estudiante de nuevo ingreso o en ejercicio. ¡Aprende, practica y evalúa tus habilidades con contenido expandido!</p>
+            <p>Nueva versión: Incluye quizzes interactivos, más problemas y modo oscuro para mejor experiencia.</p>
+        </header>
+        
+        <nav class="menu">
+            <button onclick="showSection('guia')"><i class="fas fa-book"></i> Guía</button>
+            <button onclick="showSection('simulador')"><i class="fas fa-code"></i> Simulador de Aprendizaje</button>
+            <button onclick="showSection('recursos')"><i class="fas fa-link"></i> Recursos</button>
+            <button onclick="showSection('acerca')"><i class="fas fa-info-circle"></i> Acerca de</button>
+            <button onclick="showSection('autores')"><i class="fas fa-users"></i> Autores</button>
+            <button onclick="exitApp()"><i class="fas fa-sign-out-alt"></i> Salir</button>
+        </nav>
+        
+<main id="main-content">
+
+    <div id="initial-loading-message" class="section active" style="text-align: center; padding: 20px;">
+        <h2>Iniciando plataforma...</h2>
+        <p>Por favor, ingrese sus credenciales en el modal para comenzar.</p>
+    </div>
+</main>
+    <script src="Script.js"></script>
+</body>
+</html>

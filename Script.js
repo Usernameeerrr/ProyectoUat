@@ -554,7 +554,29 @@ function syncThemeIcon() {
   icon.classList.remove('fa-moon','fa-sun');
   icon.classList.add(isDark ? 'fa-sun' : 'fa-moon');
 }
+function mostrarSemestre(num) {
+  const info = document.getElementById('info-semestre');
+  const data = {
+    1: "C++ (Básico)",
+    2: "C y C++",
+    3: "Java y HTML",
+    4: "HTML",
+    5: "Python, Nube e, Java",
+    6: "Python",
+    7: "C#",
+    8: "C#, Java, Python",
+    9: "Todos los anteriores lenguajes vistos (C++, C, Java, HTML, Python, C#, Nube e)"
+  };
 
+  if (info) {
+    info.innerHTML = `
+      <h3>${num}° Semestre</h3>
+      <p><strong>Lenguajes / Temas:</strong> ${data[num]}</p>
+    `;
+  } else {
+    console.warn("No se encontró el elemento info-semestre en el simulador.");
+  }
+}
 
 window.toggleTheme = toggleTheme;
 window.loadTheme = loadTheme;

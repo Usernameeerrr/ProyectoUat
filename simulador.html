@@ -19,6 +19,26 @@
     <h1 id="site-title"><i class="fas fa-code" aria-hidden="true"></i> Simulador de Algoritmos</h1>
   </header>
 
+  <div class="semestres-container">
+  <h2>Selecciona tu semestre</h2>
+  <div class="semestres-grid">
+    <button class="semestre-btn" onclick="mostrarSemestre(1)">1° Semestre</button>
+    <button class="semestre-btn" onclick="mostrarSemestre(2)">2° Semestre</button>
+    <button class="semestre-btn" onclick="mostrarSemestre(3)">3° Semestre</button>
+    <button class="semestre-btn" onclick="mostrarSemestre(4)">4° Semestre</button>
+    <button class="semestre-btn" onclick="mostrarSemestre(5)">5° Semestre</button>
+    <button class="semestre-btn" onclick="mostrarSemestre(6)">6° Semestre</button>
+    <button class="semestre-btn" onclick="mostrarSemestre(7)">7° Semestre</button>
+    <button class="semestre-btn" onclick="mostrarSemestre(8)">8° Semestre</button>
+    <button class="semestre-btn" onclick="mostrarSemestre(9)">9° Semestre</button>
+  </div>
+
+  <div id="info-semestre" class="info-semestre">
+    <p>Selecciona un semestre para ver sus lenguajes y temas.</p>
+  </div>
+</div>
+
+
   <main id="main-content" role="main" class="container grid-two">
     <section id="simulator-section" class="section" aria-labelledby="simulator-title">
       <div class="hero">
